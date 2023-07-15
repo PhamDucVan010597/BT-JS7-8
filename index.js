@@ -1,4 +1,5 @@
 var arrHienThi = [];
+// Thêm mảng
 document.querySelector("#themSo").onclick = function () {
   var arrInput = "";
   var input = +document.querySelector("#input").value;
@@ -69,12 +70,16 @@ document.querySelector("#doiCho").onclick = function () {
       arrHienThi[viTriThuNhat] = arrHienThi[viTriThuHai];
       arrHienThi[viTriThuHai] = k;
     }
-  document.querySelector("#ketqua6").innerHTML = arrHienThi;
+  document.querySelector("#ketqua6").innerHTML =
+    ` Mảng mới sau khi đổi chỗ là: ` + arrHienThi;
 };
 
 // Sắp xếp tăng dần
 document.querySelector("#tangDan").onclick = function () {
-  arrHienThi.sort();
+  arrHienThi.sort(function (a, b) {
+    return a - b;
+  });
+
   document.querySelector("#ketqua7").innerHTML = arrHienThi;
 };
 
@@ -92,7 +97,7 @@ document.querySelector("#soNguyenTo").onclick = function () {
       snt = "Số nguyên tố đầu tiên của mảng là: " + arrHienThi[i];
       break;
     } else {
-      snt = "Mảng không có số nguyên tố";
+      snt = -1;
     }
   }
   document.querySelector("#ketqua8").innerHTML = snt;
